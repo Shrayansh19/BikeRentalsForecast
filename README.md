@@ -1,7 +1,5 @@
 # Bike Share Demand Forecast - Kaggle Competition
-<p align="center">
-    <img src = "./images/bike.jpg" width=500>
-</p>
+![bike](https://user-images.githubusercontent.com/63955480/126615338-83f6686a-4078-4a7d-a964-3b1a20b41582.jpg)
 
 ## Description
 Bike sharing systems are a means of renting bicycles where the process of obtaining membership, rental, and bike return is automated via a network of kiosk locations throughout a city. Using these systems, people are able rent a bike from a one location and return it to a different place on an as-needed basis. Currently, there are over 500 bike-sharing programs around the world.
@@ -20,19 +18,9 @@ In this project, I will:
 
 ## Exploratory Analysis
 
-### Dependent Variable Univeraiate Analysis
-
-I first performed  univariate analyses for all variables. In particular, the dependent variable _count_ has an interesting distribution.
-
-![count_distribution](./figs/count_dist.png)
-
-The figure on the left is the distribution before a transformation is applied to the _count_ variable. It is clear that the distribution is skewed to the right. One of the Ordinary Least Squares assumption (required for linear regression) is to have the error term be normally distributed. After applying a log transformation, the distribution looks closer to a bell curve. This transformation is applied for Linear Regression and XGBoost.
-
 ### Correlation Matrix
 
-I also looked at the correlation matrix for all the numerical variables.
-
-![correlation_matrix](./figs/corr_matrix.png)
+![corr_matrix](https://user-images.githubusercontent.com/63955480/126615941-bd1c2a50-c8f3-417d-b28a-73e1dddc7164.png)
 
 From the correlation matrix above, there are a couple important inferences made:
 * _windspeed_ is not really correlated with _count_ - we will exclude windspeed from the models
@@ -42,7 +30,7 @@ From the correlation matrix above, there are a couple important inferences made:
 
 Lastly, I performed bivariate analyses, looking at the categorical variables and their interaction with the dependent variable.
 
-![categ_vars](./figs/categ_vars.png)
+![categ_vars](https://user-images.githubusercontent.com/63955480/126616595-9bb9e864-b74e-45db-889a-d47cad8b47c7.png)
 
 From the figures above, we noticed that:
 * Spring has a relatively lower number of _count_, and a smaller interquartile range. Seems there is just less demand in Spring
@@ -76,12 +64,11 @@ In order to evaluate our models, we utilized root mean squared logarithmic error
 ![equation](https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac1n%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%28%5Clog%28p_%7Bi%7D&plus;1%29%7D%20-%20%5Clog%28a_i%20&plus;%201%29%29%5E%7B2%7D%7D%5C%5C%5C%5C%5Ctext%7Bwhere%3A%7D%5C%5Cp_i%20%3D%20%5Ctext%7Bprediction%20of%20the%20ith%20observation%7D%5C%5Ca_i%20%3D%20%5Ctext%7Bactual%20of%20the%20ith%20observation%7D%5C%5Cn%20%3D%20%5Ctext%7Bsample%20size%7D)
 
 I utilized 3 models during my model selection process. Linear Regerssion was used as the baseline model. The challenger models are Random Forest and XGBoost. Using cross validation with 5 folds, I determined the RMSLE for these 3 models. 
-
-![model results](./figs/model_results.png)
+![model_results](https://user-images.githubusercontent.com/63955480/126616316-9a6ac053-1c6e-4eb0-8023-5d7205f7f978.png)
 
 XGBoost had the lowest RMSLE, so it was chosen as the champion model. In order to further improve its performance, I performed hyperparameter tuning to calibrate the hyperparameters. In the end, the model with the most optimal hyperparameters had the following RMSLE.
 
-![champion results](./figs/champion_results.png)
+![champion_results](https://user-images.githubusercontent.com/63955480/126616405-05c29854-4548-40dd-81c4-eae532c89296.png)
 
 ## Champion Model Testing Results
 
