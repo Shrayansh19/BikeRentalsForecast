@@ -1,4 +1,4 @@
-# Bike Share Demand Forecast - Kaggle Competition
+# Bike Rental Forecast 
 ![bike](https://user-images.githubusercontent.com/63955480/126615338-83f6686a-4078-4a7d-a964-3b1a20b41582.jpg)
 
 ## Description
@@ -70,6 +70,3 @@ XGBoost had the lowest RMSLE, so it was chosen as the champion model. In order t
 
 ![champion_results](https://user-images.githubusercontent.com/63955480/126616405-05c29854-4548-40dd-81c4-eae532c89296.png)
 
-## Champion Model Testing Results
-
-The champion model had an RMLSE of 0.41527 on the testing data when submitted to Kaggle.
